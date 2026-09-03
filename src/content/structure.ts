@@ -1,0 +1,103 @@
+import type { Chapter, Course, Topic } from "./schema";
+
+export const courses: Course[] = [
+  {
+    id: "c-m4",
+    slug: "m4",
+    title: "คณิตศาสตร์ ม.4",
+    level: "m4",
+    description: "เซต ตรรกศาสตร์ จำนวนจริง ฟังก์ชัน และเรขาคณิตวิเคราะห์ — รากฐานของทุกอย่างที่ตามมา",
+    order: 1,
+  },
+  {
+    id: "c-m5",
+    slug: "m5",
+    title: "คณิตศาสตร์ ม.5",
+    level: "m5",
+    description: "ตรีโกณมิติ เวกเตอร์ เมทริกซ์ จำนวนเชิงซ้อน และสถิติ",
+    order: 2,
+  },
+  {
+    id: "c-m6",
+    slug: "m6",
+    title: "คณิตศาสตร์ ม.6",
+    level: "m6",
+    description: "ลิมิต ความต่อเนื่อง อนุพันธ์ และปริพันธ์ — ประตูสู่คณิตศาสตร์มหาวิทยาลัย",
+    order: 3,
+  },
+];
+
+export const chapters: Chapter[] = [
+  { id: "ch-set", courseId: "c-m4", title: "เซต", order: 1 },
+  { id: "ch-logic", courseId: "c-m4", title: "ตรรกศาสตร์", order: 2 },
+  { id: "ch-real", courseId: "c-m4", title: "จำนวนจริง", order: 3 },
+  { id: "ch-poly", courseId: "c-m4", title: "พหุนาม", order: 4 },
+  { id: "ch-eq", courseId: "c-m4", title: "สมการและอสมการ", order: 5 },
+  { id: "ch-func", courseId: "c-m4", title: "ฟังก์ชัน", order: 6 },
+  { id: "ch-exp", courseId: "c-m4", title: "เอกซ์โพเนนเชียลและลอการิทึม", order: 7 },
+  { id: "ch-geom", courseId: "c-m4", title: "เรขาคณิตวิเคราะห์", order: 8 },
+  { id: "ch-trig", courseId: "c-m5", title: "ตรีโกณมิติ", order: 1 },
+  { id: "ch-vector", courseId: "c-m5", title: "เวกเตอร์", order: 2 },
+  { id: "ch-complex", courseId: "c-m5", title: "จำนวนเชิงซ้อน", order: 3 },
+  { id: "ch-stat", courseId: "c-m5", title: "สถิติ", order: 4 },
+  { id: "ch-limit", courseId: "c-m6", title: "ลิมิตและความต่อเนื่อง", order: 1 },
+  { id: "ch-deriv", courseId: "c-m6", title: "อนุพันธ์", order: 2 },
+  { id: "ch-integral", courseId: "c-m6", title: "ปริพันธ์", order: 3 },
+];
+
+export const topics: Topic[] = [
+  {
+    id: "t-set-basic",
+    chapterId: "ch-set",
+    slug: "set-basic",
+    title: "ความหมายและการเขียนเซต",
+    summary: "เซตคืออะไร เขียนอย่างไร และทำไมคณิตศาสตร์ทั้งหมดจึงสร้างอยู่บนแนวคิดนี้",
+    order: 1,
+    prerequisites: [],
+  },
+  {
+    id: "t-real-line",
+    chapterId: "ch-real",
+    slug: "real-number-line",
+    title: "จำนวนจริงและเส้นจำนวน",
+    summary: "ช่วง ค่าสัมบูรณ์ และการอ่านเซตคำตอบจากเส้นจำนวน",
+    order: 1,
+    prerequisites: ["t-set-basic"],
+  },
+  {
+    id: "t-function",
+    chapterId: "ch-func",
+    slug: "function-basic",
+    title: "ฟังก์ชันคืออะไร",
+    summary: "โดเมน เรนจ์ และเงื่อนไขข้อเดียวที่แยกฟังก์ชันออกจากความสัมพันธ์ทั่วไป",
+    order: 1,
+    prerequisites: ["t-set-basic", "t-real-line"],
+  },
+  {
+    id: "t-quadratic",
+    chapterId: "ch-func",
+    slug: "quadratic-function",
+    title: "ฟังก์ชันกำลังสอง",
+    summary: "พาราโบลา จุดยอด แกนสมมาตร และความหมายของ b² − 4ac",
+    order: 2,
+    prerequisites: ["t-function"],
+  },
+  {
+    id: "t-unit-circle",
+    chapterId: "ch-trig",
+    slug: "unit-circle",
+    title: "วงกลมหนึ่งหน่วย",
+    summary: "นิยาม sin cos tan ที่ใช้ได้กับทุกมุม ไม่ใช่แค่มุมในสามเหลี่ยมมุมฉาก",
+    order: 1,
+    prerequisites: ["t-function"],
+  },
+  {
+    id: "t-derivative",
+    chapterId: "ch-deriv",
+    slug: "derivative-intro",
+    title: "อนุพันธ์คืออะไร",
+    summary: "จากความชันของเส้นตัด สู่ความชันที่จุดเดียว เมื่อ Δx → 0",
+    order: 1,
+    prerequisites: ["t-function", "t-quadratic"],
+  },
+];
